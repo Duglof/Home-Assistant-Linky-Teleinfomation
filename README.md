@@ -1,6 +1,11 @@
 # Home-Assistant-Linky-Teleinfomation
  Linky Téléinformation pour Home Assistant avec ESPHOME
 
+ ----------------------------------------------------------------------------------------------------------------
+ Le Raspberry 3B est très juste pour pouvoir compiler et flasher le module ESP32 mais je n'avais que ça sous la main
+ La compilation (installation) prend environ 40 minutes mais c'est possible
+ ----------------------------------------------------------------------------------------------------------------
+
  Pour pouvoir ajouter simplement des modules complémentaires, prennez image contenant:
  - HA Operating System
  - Home Assitant
@@ -63,6 +68,16 @@ Connexions à Serial2 de ESP32 WROOM
 - GND : GND de ESP (GND) 
 - +V  : 3V  de ESP (3.3V)
 - RXD : Entrée Teleinfo de l'ESP (esp32-linky.yaml uart_pin: GPIO16)
+
+# Matériel 3 : Interface pour flasher haos_rpi3-64-16.2.img.xz sur le disque SSD
+- Titre : Adaptateur mSATA vers SATA clé B m.2 SATA SSD vers SATA carte adaptateur mSATA m.2 NGFF vers USB convertisseur pour mSATA + M.2 2 en 1 SSD HDD Riser
+- Il permet de connecter différents modèle de mémoire flash en USB
+- Mais surtout le câble permet de connecter en USB un disque SATA (normal ou SSD) 
+![interface usb sata](Cable-Interface-USB-SATA.png)
+- Disque SSD
+![disque ssd sata](Disque SDD SATA.png)
+- Si vous n'avez pas de carte d'interface SSD X820, vous pouvez connecter sur la Raspberry 3B le disque SSD avec ce câble, cela fonctionnera
+- On peut même utiliser un petit disque SATA de 80 Giga normal (pas SSD) cela fonctionnera aussi
 
 # Etape 1 : Installation de Home Assistant V16.2
 - 1 Positionner le flag boot from USB de la Raspberry 3B
