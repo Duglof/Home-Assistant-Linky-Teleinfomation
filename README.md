@@ -73,9 +73,9 @@ Connexions à Serial2 de ESP32 WROOM
 - Titre : Adaptateur mSATA vers SATA clé B m.2 SATA SSD vers SATA carte adaptateur mSATA m.2 NGFF vers USB convertisseur pour mSATA + M.2 2 en 1 SSD HDD Riser
 - Il permet de connecter différents modèle de mémoire flash en USB
 - Mais surtout le câble permet de connecter en USB un disque SATA (normal ou SSD) 
-![interface usb sata](Cable-Interface-USB-SATA.png)
+![interface usb sata](docs/Cable-Interface-USB-SATA.png)
 - Disque SSD
-![disque ssd sata](Disque SDD SATA.png)
+![disque ssd sata](docs/Disque-SDD-SATA.png)
 - Si vous n'avez pas de carte d'interface SSD X820, vous pouvez connecter sur la Raspberry 3B le disque SSD avec ce câble, cela fonctionnera
 - On peut même utiliser un petit disque SATA de 80 Giga normal (pas SSD) cela fonctionnera aussi
 
