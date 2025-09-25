@@ -74,6 +74,7 @@ Connexions à Serial2 de ESP32 WROOM
 - Il permet de connecter différents modèle de mémoire flash en USB
 - Mais surtout le câble permet de connecter en USB un disque SATA (normal ou SSD) 
 ![interface usb sata](docs/Cable-Interface-USB-SATA.png)
+
 - Disque SSD
 ![disque ssd sata](docs/Disque-SDD-SATA.png)
 - Si vous n'avez pas de carte d'interface SSD X820, vous pouvez connecter sur la Raspberry 3B le disque SSD avec ce câble, cela fonctionnera
