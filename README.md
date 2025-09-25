@@ -32,7 +32,12 @@
 - Logiciel pour transférer l'image : Balena Etcher
 
 # Matériel 1 : ESP32 dev kit
+- Vous pouvez utiliser un autre modèle mais il faudra changer la déclaration esp32-linky.yaml
+  - esp32:
+    - board: xxxx
 - Type WROOM 32 avec 4 Mo de flash (30 broches)
+![esp32 cp2102](docs/ESP32S-30P-CP2102-MicroUSB.png) 
+![esp32 gpio](docs/ESP32-dev-kit-30pins-pinout.png)
 
 # Matériel 2 : Linky Interface
 ![interface linky](docs/schema-interface-linky.png)
