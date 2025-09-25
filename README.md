@@ -31,6 +31,35 @@
 - Interface SATA USB pour connecter le SSD sur l'ordinateur
 - Logiciel pour transférer l'image : Balena Etcher
 
+# Matériel 1 : ESP32 dev kit
+- Type WROOM 32 avec 4 Mo de flash (30 broches)
+
+# Matériel 2 : Linky Interface
+![interface linky](docs/schema-interface-linky.png)
+Attention, les BS170 que j'ai reçu avait un brochage inversé S-G-D (au lieu de D-G-S) ça ne fonctionnait pas !!!
+- C'est reconnaissable, la tension entre Drain et Source était de 0,6V alors que la grille était à zéro.
+
+Pour un linky en mode <b>standard</b>, il faut peut être passer la valeur de la résistance <B>R1 à 1k</b>.
+
+ESP (ESP8266 or ESP32) Input specifications (Entrée Teleinfo):
+- Niveau bas : Tension inférieure à Vil (max) = 0.25 * 3.3 = 0.825V
+- Niveau Haut : Tension supérieure à Vih (min) = 0.75 * 3.3 = 2.475V
+
+Test de l'interface:
+- La LED TIC doit être éteinte (Tension en Drain et Source environ 3.3 Volts)
+- En reliant l'entrée 1 à GND et 2 à 3.3V la LED TIC doit s'allumer (Tension en Drain et Source environ 0 Volt)
+- Avec une tension variant entre 0V et 3.3V on respecte bien les spécifications ESP
+
+Connexions au compteur Linky (il n'y a pas de sens, on peut inverser)
+- Connecter Teleinfo 1 et sur I1 du compteur
+- Connecter Teleinfo 2 et sur I2 du compteur
+
+Connexions à Serial2 de ESP32 WROOM
+- GND : GND de ESP (GND) 
+- +V  : 3V  de ESP (3.3V)
+- RXD : Entrée Teleinfo de l'ESP
+
+
 # Etape 1 : Installation de Home Assistant V16.2
 - 1 Positionner le flag boot from USB de la Raspberry 3B
 - 2 Graver l'image de haos sur le disque SSD
