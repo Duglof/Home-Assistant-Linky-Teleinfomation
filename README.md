@@ -62,8 +62,7 @@ Connexions au compteur Linky (il n'y a pas de sens, on peut inverser)
 Connexions à Serial2 de ESP32 WROOM
 - GND : GND de ESP (GND) 
 - +V  : 3V  de ESP (3.3V)
-- RXD : Entrée Teleinfo de l'ESP
-
+- RXD : Entrée Teleinfo de l'ESP (esp32-linky.yaml uart_pin: GPIO16)
 
 # Etape 1 : Installation de Home Assistant V16.2
 - 1 Positionner le flag boot from USB de la Raspberry 3B
