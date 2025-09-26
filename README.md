@@ -112,6 +112,8 @@ Ajout de ESPHome builder
 ![home-assistant boot](docs/HomeAssistant-06-ESPHome.png)
 
 # Etape 3 : ESPHome Organiser les fichiers de configuration
+![esphome config](docs/ESPHome-01-config.png)
+
 - Utiliser l'éditeur de fichier pour créer, modifier ou importer les fichiers de configuration
   - Les fichiers de configuration sont dans le dossier esphome de ce projet github
 
@@ -121,6 +123,8 @@ Ajout de ESPHome builder
   - Ceci afin qu'ils ne soit pas dans vos fichiers de chaque module ESP (sécurité)
 
 - Un fichier de config pour chaque module ESPHome créé : esp32-linky.yaml (créé lors de l'étape suivante)
+
+![esphome config linky](docs/ESPHome-02-config-common-linky.png)
 
 - Un dossier common (à créer)
 - Dans le dossier common un dossier linky qui contient les fichiers yaml inclus pour chaque config linky
@@ -139,13 +143,16 @@ Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est inc
 - Cliquez sur <b><SKIP</b>
 
 # Etape 5 : Test d'installation de ce module qui ne fait rien
+
+![esphome config linky](docs/ESPHome-10-install.png)
+
 - Validate : Valider la configuration : Elle doit être valide
 - Install : Installer la configuration
 - Choisir Plug into the computer running ESPHome Builder
 - Choisir le port : Dans mon cas CP2102 USB to UART Bridge Controler (/dev/ttyUSB0)
 - Là vous pouvez aller prendre plusieurs cafés ... (c'est très long)
 
-#Etape 6 : Installation de la configuration Linky
+# Etape 6 : Installation de la configuration Linky
 - Sauvegarder le fichier esp32-linky.yaml (pour pouvoir faire un retour arrière et des comparaisons en cas de problème)
 - Remplacer le fichier esp32-linky.yaml par celui de ce projet (esphome/esp32-linky.yaml)
 - Créer le dossier common puis le dossier linky
