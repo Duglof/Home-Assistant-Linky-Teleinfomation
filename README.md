@@ -88,5 +88,20 @@ Connexions à Serial2 de ESP32 WROOM
 - 5 Mettez sous tension : ça boote directement sur haos
   - Les logs de boot s'affichent sur l'écran connecté à la Raspberry 
 
+![home-assistant boot](docs/HomeAssistant-01-boot.png)
+
 # Etape 2 : Configurer Home Assistant
 - Depuis http://homeassistant.local:8123
+
+![home-assistant boot](docs/HomeAssistant-02-Compte.png)
+![home-assistant boot](docs/HomeAssistant-03-ModulesComplémentaires.png)
+![home-assistant boot](docs/HomeAssistant-04-SwapSpace.png)
+A ajouter uniquement si le serveur Home Assistant est une Raspberry 3B
+![home-assistant boot](docs/HomeAssistant-05-EditeurDeFichier.png)
+![home-assistant boot](docs/HomeAssistant-06-ESPHome.png)
+
+
+
+
+
+
