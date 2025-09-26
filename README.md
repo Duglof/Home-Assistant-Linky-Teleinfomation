@@ -94,11 +94,17 @@ Connexions à Serial2 de ESP32 WROOM
 - Depuis http://homeassistant.local:8123
 
 ![home-assistant boot](docs/HomeAssistant-02-Compte.png)
+
+Ajout des modules complémentaires
 ![home-assistant boot](docs/HomeAssistant-03-ModulesComplémentaires.png)
+
+Augmentation du swap space (A ajouter uniquement si le serveur Home Assistant est une Raspberry 3B)
 ![home-assistant boot](docs/HomeAssistant-04-SwapSpace.png)
 
-Increase Swap Sapce : A ajouter uniquement si le serveur Home Assistant est une Raspberry 3B
+Ajout de l'éditeur de fichier
 ![home-assistant boot](docs/HomeAssistant-05-EditeurDeFichier.png)
+
+Ajout de ESPHome builder
 ![home-assistant boot](docs/HomeAssistant-06-ESPHome.png)
 
 
