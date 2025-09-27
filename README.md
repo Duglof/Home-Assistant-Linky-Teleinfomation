@@ -167,8 +167,6 @@ Ajout de ESPHome builder
 A vous de modifier le fichier esp32-linky.yaml afin d'inclure la bonne configuration pour votre compteur linky
 Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est incluse (voir section <b>packages:</b>)
 
-![esphome secrets update](docs/ESPHome-16-secrets-update.png)
-
 # Etape 7 : Installation de la configuration Linky
 - Sauvegarder le fichier esp32-linky.yaml (pour pouvoir faire un retour arrière et des comparaisons en cas de problème)
 - Remplacer le fichier esp32-linky.yaml par celui de ce projet (esphome/esp32-linky.yaml)
