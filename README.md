@@ -165,10 +165,23 @@ Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est inc
 # Etape 7 : Installer le code dans le module ESP32
 - Connectez votre module ESP32 sur votre serveur Home Assistant (Raspberry 3B) avec un câble USB
 - Cliquer sur le module
-- Validate : Valider la configuration : Elle doit être valide
+- Validate : Valider la configuration : Elle doit être validée
 - Install : Installer la configuration
 - Choisir Plug into the computer running ESPHome Builder
 - Choisir le port : Dans mon cas CP2102 USB to UART Bridge Controler (/dev/ttyUSB0)
 - Là vous pouvez aller prendre plusieurs cafés ... (c'est très très très long)
 
+# Etape 8 : Tester votre module esp32-linky
+- Dans le fichier esp32-linky.yaml, l'interface web est activée
+  - Section <b>web_server:</b>
+    - Port <b>port: 80</b>
+- On peut donc accéder au module par son nom <b>http://esp32-linky.local</b> (<nom-du-mudule>.local)
+- Ou en cliquant sur le bouton VISIT du module
 
+![esphome config linky](docs/ESPHome-20-web-interface.png)
+
+- Cette action ouvre un nouvel onglet dans votre navigateur avec la page suivante:
+
+![esphome config linky](docs/ESP32-linky-10-web-interface.png)
+
+Dans cet écran, le module n'est pas encore connecté au compteur linky !
