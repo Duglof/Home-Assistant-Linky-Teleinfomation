@@ -111,7 +111,37 @@ Ajout de ESPHome builder
 
 ![home-assistant boot](docs/HomeAssistant-06-ESPHome.png)
 
-# Etape 3 : ESPHome Organiser les fichiers de configuration
+# Etape 3 : Création du module
+- Cliquer en bas à droite sur <b>+ NEW DEVICE</b>
+- Donnez lui le nom esp32-linky : cela crééra le fichier esp32-linky.yaml
+- Choisissez comme type ESP32
+- Affichage de configuration created
+- Cliquez sur <b><SKIP</b>
+
+# Etape 4 : Export api key and ota passord dans secrets.yaml
+
+- Editer le fichier de configuration de votre module esp32-linky
+
+![esphome secrets](docs/ESPHome-15-secrets.png)
+
+- Ajouter ou mettre à jour les secrets
+
+![esphome secrets update](docs/ESPHome-16-secrets-update.png)
+
+# Etape 5 : Test d'installation de ce module qui ne fait rien
+
+![esphome config linky](docs/ESPHome-10-install.png)
+
+- Validate : Valider la configuration : Elle doit être valide
+- Install : Installer la configuration
+- Choisir Plug into the computer running ESPHome Builder
+- Choisir le port : Dans mon cas CP2102 USB to UART Bridge Controler (/dev/ttyUSB0)
+- Là vous pouvez aller prendre plusieurs cafés ... (c'est très long)
+
+# Etape 6 : ESPHome : Installer les fichiers 
+
+## Organiser les fichiers de configuration
+
 ![esphome config](docs/ESPHome-01-config.png)
 
 - Utiliser l'éditeur de fichier pour créer, modifier ou importer les fichiers de configuration
@@ -126,8 +156,10 @@ Ajout de ESPHome builder
 
 ![esphome config linky](docs/ESPHome-02-config-common-linky.png)
 
+## Création du sous-dossiers linky (<ESPHOME>/common/linky)
+
 - Un dossier common (à créer)
-- Dans le dossier common un dossier linky qui contient les fichiers yaml inclus pour chaque config linky
+- Dans le dossier <b>common</b> créer dossier <b>linky</b> qui contient les fichiers yaml inclus pour chaque config linky
   - linky_TIC_historic_base_mono.yaml : linky en mode historique avec un abonnement de base monophasé
   - linky_TIC_historic_hphc_mono.yaml : linky en mode historique avec un abonnement heure pleine heure creuse monophasé
   - linky_TIC_standard_base_mono.yaml : linky en mode standard avec un abonnement de base monophasé
@@ -135,24 +167,9 @@ Ajout de ESPHome builder
 A vous de modifier le fichier esp32-linky.yaml afin d'inclure la bonne configuration pour votre compteur linky
 Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est incluse (voir section <b>packages:</b>)
 
-# Etape 4 : Création du module
-- Cliquer en bas à droite sur <b>+ NEW DEVICE</b>
-- Donnez lui le nom esp32-linky : cela crééra le fichier esp32-linky.yaml
-- Choisissez comme type ESP32
-- Affichage de configuration created
-- Cliquez sur <b><SKIP</b>
+![esphome secrets update](docs/ESPHome-16-secrets-update.png)
 
-# Etape 5 : Test d'installation de ce module qui ne fait rien
-
-![esphome config linky](docs/ESPHome-10-install.png)
-
-- Validate : Valider la configuration : Elle doit être valide
-- Install : Installer la configuration
-- Choisir Plug into the computer running ESPHome Builder
-- Choisir le port : Dans mon cas CP2102 USB to UART Bridge Controler (/dev/ttyUSB0)
-- Là vous pouvez aller prendre plusieurs cafés ... (c'est très long)
-
-# Etape 6 : Installation de la configuration Linky
+# Etape 7 : Installation de la configuration Linky
 - Sauvegarder le fichier esp32-linky.yaml (pour pouvoir faire un retour arrière et des comparaisons en cas de problème)
 - Remplacer le fichier esp32-linky.yaml par celui de ce projet (esphome/esp32-linky.yaml)
 - Créer le dossier common puis le dossier linky
@@ -162,7 +179,7 @@ Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est inc
   - La ligne utilisée ne commence pas par #
   - Les lignes commencant par # sont inutilées (considérées comme des commentaires)
  
-# Etape 7 : Installer le code dans le module ESP32
+# Etape 8 : Installer le code dans le module ESP32
 - Connectez votre module ESP32 sur votre serveur Home Assistant (Raspberry 3B) avec un câble USB
 - Cliquer sur le module
 - Validate : Valider la configuration : Elle doit être validée
@@ -171,17 +188,17 @@ Pas défaut c'est la configuration linky_TIC_historic_hphc_mono.yaml qui est inc
 - Choisir le port : Dans mon cas CP2102 USB to UART Bridge Controler (/dev/ttyUSB0)
 - Là vous pouvez aller prendre plusieurs cafés ... (c'est très très très long)
 
-# Etape 8 : Tester votre module esp32-linky
+# Etape 9 : Tester votre module esp32-linky
 - Dans le fichier esp32-linky.yaml, l'interface web est activée
   - Section <b>web_server:</b>
     - Port <b>port: 80</b>
 - On peut donc accéder au module par son nom <b>http://esp32-linky.local</b> (<nom-du-mudule>.local)
 - Ou en cliquant sur le bouton VISIT du module
 
-![esphome config linky](docs/ESPHome-20-web-interface.png)
+![esphome web interface](docs/ESPHome-20-web-interface.png)
 
 - Cette action ouvre un nouvel onglet dans votre navigateur avec la page suivante:
 
-![esphome config linky](docs/ESP32-linky-10-web-interface.png)
+![esp32-linky web interface](docs/ESP32-linky-10-web-interface.png)
 
 Dans cet écran, le module n'est pas encore connecté au compteur linky !
