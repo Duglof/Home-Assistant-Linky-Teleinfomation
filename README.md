@@ -1,6 +1,24 @@
 # Home-Assistant-Linky-Teleinfomation
  Linky Téléinformation pour Home Assistant avec ESPHOME
 
+## Références
+- [Energy" et teleinformation avec ESPHome] (https://www.hacf.fr/esphome-cartes-energy-teleinformation/)
+- [Linky Teleinformation (TIC) + ESPHome + Home Assistant] (https://gist.github.com/mathieucarbou/886d2a6f5c0b51bb261d6a1329beb08d)
+
+## Configurations
+- Conservation de la possibilité de piloter deux linky avec un seul ESP32 (rarement utilisé)
+- Création de sous configurations (ESPHome/common/linky) pour différentes configuration
+
+| Fichiers | Description |
+|------------------------------------------------|------------------------------------------------------------------------------|
+| esp32-linky.yaml |Fichier principal de configuration du module ESP32 |
+| common/linky/linky_TIC_historic_base_mono.yaml | Linky monophasé en mode historique avec abonnement de base |
+| common/linky/linky_TIC_historic_hphc_mono.yaml | Linky monophasé en mode historique avec abonnement heure pleine heure creuse |
+| common/linky/linky_TIC_standard_base_mono.yaml | Linky monophasé en mode standard avec abonnement de base |
+
+* Mode historique : 1200 bauds
+* Mode standard : 9600 bauds
+ 
  ----------------------------------------------------------------------------------------------------------------
  Le Raspberry 3B est très juste pour pouvoir compiler et flasher le module ESP32 mais je n'avais que ça sous la main
  La compilation (installation) prend environ 40 minutes mais c'est possible
