@@ -120,11 +120,11 @@ Ajout de ESPHome builder
 
 # Etape 4 : Export api key and ota passord dans secrets.yaml
 
-- Editer le fichier de configuration de votre module esp32-linky
+- Editer le fichier de configuration de votre module esp32-linky en cliquant sur <b>EDIT</b>
 
 ![esphome secrets](docs/ESPHome-15-secrets.png)
 
-- Ajouter ou mettre à jour les secrets
+- Ajouter ou mettre à jour les secrets en cliquant sur <b>SECRETS</b>
 
 ![esphome secrets update](docs/ESPHome-16-secrets-update.png)
 
