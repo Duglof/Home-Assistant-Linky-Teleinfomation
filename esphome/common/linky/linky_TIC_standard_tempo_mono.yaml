@@ -1,0 +1,639 @@
+# From : https://gist.github.com/mathieucarbou/886d2a6f5c0b51bb261d6a1329beb08d
+# This file is deicated to one TIC bus for multiple meters configuration
+# Version for meters in "standard" mode base monophase
+#
+# https://esphome.io/components/uart.html
+uart:
+ - id: uart_${bus_id}
+   rx_pin: ${uart_pin}
+   baud_rate: 9600 # 9600 == mode standard, 1200 == mode historique
+   parity: EVEN
+   data_bits: 7
+   stop_bits: 1
+#
+# https://esphome.io/components/sensor/teleinfo.html
+teleinfo:
+ - id: teleinfo_${bus_id}
+   update_interval: ${update_interval}
+   historical_mode: false # false == mode standard, true == mode historique
+   uart_id: uart_${bus_id}
+#
+# https://esphome.io/components/sensor/index.html
+sensor:
+ #------------------------
+ # MODE STANDARD MONOPHASE
+ #------------------------
+ # Énergie active soutirée totale
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EAST"
+   name: ${bus_id}_linky_energie_soutiree
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 01
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF01"
+   name: ${bus_id}_linky_energie_soutiree_tempo_bleu_hc
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 02
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF02"
+   name: ${bus_id}_linky_energie_soutiree_tempo_bleu_hp
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 03
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF03"
+   name: ${bus_id}_linky_energie_soutiree_tempo_blanc_hc
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 04
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF04"
+   name: ${bus_id}_linky_energie_soutiree_tempo_blanc_hp
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 05
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF05"
+   name: ${bus_id}_linky_energie_soutiree_tempo_rouge_hc
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 06
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF06"
+   name: ${bus_id}_linky_energie_soutiree_tempo_rouge_hp
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 07
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF07"
+   name: ${bus_id}_linky_energie_soutiree_f07
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 08
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF08"
+   name: ${bus_id}_linky_energie_soutiree_f08
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 09
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF09"
+   name: ${bus_id}_linky_energie_soutiree_f09
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Fournisseur, index 10
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASF10"
+   name: ${bus_id}_linky_energie_soutiree_f10
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Distributeur, index 01
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASD01"
+   name: ${bus_id}_linky_energie_soutiree_d01
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Distributeur, index 02
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASD02"
+   name: ${bus_id}_linky_energie_soutiree_d02
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Distributeur, index 03
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASD03"
+   name: ${bus_id}_linky_energie_soutiree_d03
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Energie active soutirée Distributeur, index 04
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "EASD04"
+   name: ${bus_id}_linky_energie_soutiree_d04
+   unit_of_measurement: kWh
+   device_class: energy
+   state_class: total_increasing
+   accuracy_decimals: 3
+   filters:
+     - multiply: 0.001
+ # Courant Efficace, phase 1
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "IRMS1"
+   name: ${bus_id}_linky_courant_efficace
+   unit_of_measurement: A
+   device_class: current
+   state_class: measurement
+ # Tension Efficace, phase 1
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "URMS1"
+   name: ${bus_id}_linky_tension_efficace
+   unit_of_measurement: V
+   device_class: voltage
+   state_class: measurement
+ # Puissance app. de référence
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "PREF"
+   name: ${bus_id}_linky_puissance_apparente_reference
+   state_class: measurement
+   device_class: apparent_power
+   unit_of_measurement: VA
+   filters:
+     - multiply: 1000
+ # Puissance app. de coupure
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "PCOUP"
+   name: ${bus_id}_linky_puissance_apparente_coupure
+   state_class: measurement
+   device_class: apparent_power
+   unit_of_measurement: VA
+   filters:
+     - multiply: 1000
+ # Puissance app. Instantanée Soutirée
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "SINSTS"
+   name: ${bus_id}_linky_puissance_apparente_instantanee_soutiree
+   unit_of_measurement: VA
+   state_class: measurement
+   device_class: apparent_power
+ # Puissance app. max. soutirée
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "SMAXSN"
+   name: ${bus_id}_linky_puissance_apparente_maximale_soutiree
+   unit_of_measurement: VA
+   state_class: measurement
+   device_class: apparent_power
+ # Point n de la courbe de charge active soutirée
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "CCASN"
+   name: ${bus_id}_linky_puissance_active_soutiree
+   unit_of_measurement: W
+   state_class: measurement
+   device_class: power
+ # Point n-1 de la courbe de charge active soutirée
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "CCASN-1"
+   name: ${bus_id}_linky_puissance_active_soutiree_n-1
+   unit_of_measurement: W
+   state_class: measurement
+   device_class: power
+ # Tension Moyenne, phase 1
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "UMOY1"
+   name: ${bus_id}_linky_tension_moyenne
+   unit_of_measurement: V
+   device_class: voltage
+   state_class: measurement
+ #-------------------------
+ # MODE STANDARD - TRIPHASÉ
+ #-------------------------
+ # # Courant Efficace, phase 2
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "IRMS2"
+ #   name: ${bus_id}_linky_courant_efficace_phase_2
+ #   unit_of_measurement: A
+ #   device_class: current
+ #   state_class: measurement
+ # # Courant Efficace, phase 3
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "IRMS3"
+ #   name: ${bus_id}_linky_courant_efficace_phase_3
+ #   unit_of_measurement: A
+ #   device_class: current
+ #   state_class: measurement
+ # # Tension Efficace, phase 2
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "URMS2"
+ #   name: ${bus_id}_linky_tension_efficace_phase_2
+ #   unit_of_measurement: V
+ #   device_class: voltage
+ #   state_class: measurement
+ # # Tension Efficace, phase 3
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "URMS3"
+ #   name: ${bus_id}_linky_tension_efficace_phase_3
+ #   unit_of_measurement: V
+ #   device_class: voltage
+ #   state_class: measurement
+ # # Puissance app. Instantanée Soutirée, phase 1
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SINSTS1"
+ #   name: ${bus_id}_linky_puissance_apparente_instantanee_soutiree_phase_1
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. Instantanée Soutirée, phase 2
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SINSTS2"
+ #   name: ${bus_id}_linky_puissance_apparente_instantanee_soutiree_phase_2
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. Instantanée Soutirée, phase 3
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SINSTS3"
+ #   name: ${bus_id}_linky_puissance_apparente_instantanee_soutiree_phase_3
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. max. Soutirée, phase 1
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SMAXSN1"
+ #   name: ${bus_id}_linky_puissance_apparente_maximale_soutiree_phase_1
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. max. Soutirée, phase 2
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SMAXSN2"
+ #   name: ${bus_id}_linky_puissance_apparente_maximale_soutiree_phase_2
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. max. Soutirée, phase 3
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SMAXSN3"
+ #   name: ${bus_id}_linky_puissance_apparente_maximale_soutiree_phase_3
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Tension Moyenne, phase 2
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "UMOY2"
+ #   name: ${bus_id}_linky_tension_moyenne_phase_2
+ #   unit_of_measurement: V
+ #   device_class: voltage
+ #   state_class: measurement
+ # # Tension Moyenne, phase 3
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "UMOY3"
+ #   name: ${bus_id}_linky_tension_moyenne_phase_3
+ #   unit_of_measurement: V
+ #   device_class: voltage
+ #   state_class: measurement
+ #----------------------------
+ # MODE STANDARD - PRODUCTEURS
+ #----------------------------
+ # # Energie active injectée totale
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "EAIT"
+ #   name: ${bus_id}_linky_energie_injectee
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # # Puissance app. Instantanée Injectée
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SINSTI"
+ #   name: ${bus_id}_linky_puissance_apparente_instantanee_injectee
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Puissance app. Maximale Injectée
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "SMAXIN"
+ #   name: ${bus_id}_linky_puissance_apparente_maximale_injectee
+ #   unit_of_measurement: VA
+ #   state_class: measurement
+ #   device_class: apparent_power
+ # # Point n de la courbe de charge active injectée
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "CCAIN"
+ #   name: ${bus_id}_linky_puissance_active_injectee
+ #   unit_of_measurement: W
+ #   state_class: measurement
+ #   device_class: power
+ # # Point n-1 de la courbe de charge active injectée
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "CCAIN-1"
+ #   name: ${bus_id}_linky_puissance_active_injectee_n-1
+ #   unit_of_measurement: W
+ #   state_class: measurement
+ #   device_class: power
+ # # ------------
+ # # Option HP/HC
+ # # ------------
+ # # Index option HP/HC
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "HCHC"
+ #   name: ${bus_id}_linky_index_hc
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "HCHP"
+ #   name: ${bus_id}_linky_index_hp
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # # ----------------
+ # # Index option EJP
+ # # ----------------
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "EJPHN"
+ #   name: ${bus_id}_linky_index_ejp_normal
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "EJPHPM"
+ #   name: ${bus_id}_linky_index_ejp_pointe
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # # ------------------
+ # # Index option Tempo
+ # # ------------------
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHCJB"
+ #   name: ${bus_id}_linky_index_tempo_bleu_hc
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHPJB"
+ #   name: ${bus_id}_linky_index_tempo_bleu_hp
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHCJW"
+ #   name: ${bus_id}_linky_index_tempo_blanc_hc
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHPJW"
+ #   name: ${bus_id}_linky_index_tempo_blanc_hp
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHCJR"
+ #   name: ${bus_id}_linky_index_tempo_rouge_hc
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "BBRHPJR"
+ #   name: ${bus_id}_linky_index_tempo_rouge_hp
+ #   unit_of_measurement: kWh
+ #   device_class: energy
+ #   state_class: total_increasing
+ #   accuracy_decimals: 3
+ #   filters:
+ #     - multiply: 0.001
+ # Intensité Instantanée (monophasé)
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "IINST"
+   name: ${bus_id}_linky_intensite_instantanee
+   unit_of_measurement: A
+   device_class: current
+   state_class: measurement
+   accuracy_decimals: 1  
+ # Avertissement de Dépassement De Puissance Souscrite
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "ADPS"
+   name: ${bus_id}_linky_intensite_instantanee_depassement
+   unit_of_measurement: A
+   device_class: current
+   state_class: measurement
+   accuracy_decimals: 1
+ # Intensité maximale appelée (monophasé)
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "IMAX"
+   name: ${bus_id}_linky_intensite_maximale
+   unit_of_measurement: A
+   device_class: current
+   state_class: measurement
+   accuracy_decimals: 1
+ # Puissance apparente
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "PAPP"
+   name: ${bus_id}_linky_puissance_apparente
+   unit_of_measurement: VA
+   state_class: measurement
+   device_class: apparent_power
+   accuracy_decimals: 0
+#
+# https://esphome.io/components/text_sensor/index.html
+text_sensor:
+ #--------------
+ # MODE STANDARD
+ #--------------
+ # Adresse Secondaire du Compteur
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "ADSC"
+   name: ${bus_id}_linky_adresse_secondaire
+ # Nom du calendrier tarifaire fournisseur
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "NGTF"
+   name: ${bus_id}_linky_calendrier_tarifaire
+   icon: mdi:information
+ # Libellé tarif fournisseur en cours
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "LTARF"
+   name: ${bus_id}_linky_tarif_actuel
+   icon: mdi:information
+ # Registre de Statuts
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "STGE"
+   name: ${bus_id}_linky_registre_de_statuts
+   icon: mdi:information
+ # Message court
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "MSG1"
+   name: ${bus_id}_linky_message_court
+ # Message Ultra court
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "MSG2"
+   name: ${bus_id}_linky_message_ultra_court
+ # PRM
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "PRM"
+   name: ${bus_id}_linky_prm
+ # Relais
+ - platform: teleinfo
+   teleinfo_id: teleinfo_${bus_id}
+   tag_name: "RELAIS"
+   name: ${bus_id}_linky_relais
+ # # ----------
+ # # Option EJP
+ # # ----------
+ # # Préavis Début EJP (30 min)
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "PEJP"
+ #   name: ${bus_id}_linky_preavis_ejp
+ # # Période Tarifaire en cours
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "PTEC"
+ #   name: ${bus_id}_linky_periode_tarifaire
+ # # Couleur du lendemain
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "DEMAIN"
+ #   name: ${bus_id}_linky_couleur_demain
+ # # Horaire Heures Pleines Heures Creuses
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "HHPHC"
+ #   name: ${bus_id}_linky_horaire_hp/hc
+ # # Mot d'état du compteur
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "MOTDETAT"
+ #   name: ${bus_id}_linky_mot_d_etat
+ # # Présence des potentiels
+ # - platform: teleinfo
+ #   teleinfo_id: teleinfo_${bus_id}
+ #   tag_name: "PPOT"
+ #   name: ${bus_id}_linky_presence_potentiels
