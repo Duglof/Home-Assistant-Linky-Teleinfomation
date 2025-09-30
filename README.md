@@ -18,6 +18,10 @@
 
 * Mode historique : 1200 bauds
 * Mode standard : 9600 bauds
+
+ # Données brutes reçues du compteur linky
+ [Trame-linky-mode-standard-abonnement-de-base](docs/Trame-linky-mode-standard-abonnement-de-base.txt)
+ [Trame-linky-mode-standard-abonnement-heure-pleine-heure-creuse](docs/Trame-linky-mode-standard-abonnement-heure-pleine-heure-creuse.txt)
  
  ----------------------------------------------------------------------------------------------------------------
  Le Raspberry 3B est très juste pour pouvoir compiler et flasher le module ESP32 mais je n'avais que ça sous la main
